@@ -1,0 +1,323 @@
+// Place all the styles related to the Internships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'font-awesome';
+
+#intern-title {
+    color: #333333;
+    font-size: 19px;
+    font-variant: small-caps;
+    font-weight: 100;
+    margin-top: -14px;
+    margin-left: 10px;
+    padding-bottom: 20px;
+}
+
+#company-title {
+    font-size: 19px;
+    font-variant: small-caps;
+    font-weight: 100;
+}
+
+h3.comp-head {
+  color: #ffffff !important;
+  margin-left:15px; 
+  font-variant: small-caps; 
+  font-size: 19px; 
+}
+
+#company-title-text {
+    color: #C4C8BD;
+    font-size: 14px;
+    font-weight: 100;
+    margin: 2px 0 15px 10px;
+}
+
+#intern-box {
+  padding-top: 5px;
+  margin-left: 42px;
+}
+
+.content-intern2 {
+  margin-left: 0px;
+  padding-left: 50px;
+  padding-right: 30px;
+}
+
+#row-intern {
+margin-top:0px;
+}
+
+#row2-intern {
+    background-color: #ffffff;
+    box-shadow: 4px 3px 1px -1px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    margin-left: 0;
+}
+
+th[data-sort]{
+      cursor:pointer;
+    }
+
+.greenline {
+    height: 7px;
+    width: 310px;
+    margin: 0px 0 10px 5px;
+    background-color: #80b900;
+}
+
+.rating {
+  margin: auto 0;
+}
+
+h2 {
+  margin-top:0 !important;
+}
+
+.rating_star {
+  background: url('images/star.png') 0 0;
+  width: 16px;
+  height: 16px;
+  display: block;
+  float: left;
+}
+
+#comment_form {
+  margin-bottom:10px;
+}
+
+.on {
+  background-position: 0 16px;
+}
+
+.comment{
+  background: #dddddf;
+  padding: 5px;
+  border-radius: 0px 0px 0px 0px;
+}
+
+.answer{
+  background: #dddddf;
+  padding: 5px;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom:20px;
+}
+
+.answer a {
+  margin-top:10px;
+}
+
+.answer_2{
+  background: #dddddf;
+  padding: 5px;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom: 20px;
+}
+
+.delete{
+  margin-top: -37px;
+  margin-right: 0px;
+}
+
+#user{
+  font-weight: bold;
+  background: #77b900;
+  border-radius: 5px 5px 5px 5px;
+  margin: -10px;
+  padding: 10px;
+  color: white;
+}
+
+#user_2{
+  background: #bbe175;
+  margin: -5px;
+  padding: 5px 10px 5px 10px;
+  color: black;
+}
+
+#user_3{
+  font-weight: bold;
+  background: #bbe175;
+  margin: -5px;
+  padding: 5px 10px 5px 10px;
+  color: black;
+  margin-top: -25px;
+}
+
+#sentence{
+  background-color: #fff;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 0;
+  margin-top: -20px;
+  margin-bottom: -15px;
+}
+
+#sentence a {
+  margin-top:10px;
+}
+
+#sentence_2{
+  background-color: #fff;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 0;
+  margin-top: -25px;
+  margin-bottom: -15px;
+}
+
+#sentence_3{
+  background-color: #fff;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 0;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.label{
+  margin-top: 10px;
+}
+
+.save_button{
+  float: right;
+  margin-top: -34px;
+}
+
+.table td{
+  border-top: none !important;
+}
+
+.table_intern{
+  background: #333333;
+  color: white;
+}
+
+#table_top{
+  position: absolute;
+  background: url(table-top.png);
+  height: 64px;
+  width: 38px;
+  margin-left: -38px;
+  margin-top: 0px;
+}
+
+.table-rate{
+  display: inline;
+}
+
+.company{
+  width: 100px;
+  height: 23px;
+}
+
+.programming_language{
+  width: 170px;
+}
+
+.working_hours{
+  width: 100px;
+}
+
+.living_costs{
+  width: 100px;
+}
+
+.rating{
+  width: 80px;
+}
+
+.recommend{
+  width: 40px;
+}
+
+.table_inside{
+  background: #fff;
+  font-size: 13px;
+}
+
+.table_inside ul, ol{
+    margin: 0px 0px 0px 0px !important;    
+}
+
+.img_preview{
+  border: 5px solid red;
+}
+
+#myModal{
+  max-width: none !important;
+}
+
+.modal-body{
+  max-height: none !important;
+  text-align: center;
+  img{
+    height: 450px;
+  }
+}
+
+.new_internship2{
+  position: absolute;
+  top: 177px;
+  margin-left: 1027px;
+  background: #568501;
+  padding: 10px;
+  color: #fff;
+}
+
+#triangle_right { 
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid #568501; 
+  border-left: 20px solid transparent; 
+  border-bottom: 20px solid #568501; 
+  position: absolute;
+  top: 177px;
+  margin-left: 1007px;
+}
+
+#triangle_left { 
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid #568501; 
+  border-right: 20px solid transparent; 
+  border-bottom: 20px solid #568501; 
+  position: absolute;
+  top: 177px;
+  margin-left: 1150px;
+}
+
+.new_internship2:hover{
+  color: #000;
+  text-decoration: none !important;
+}
+
+#wrapper {
+    position: relative;
+}
+
+
+.table-intern{
+  line-height: 3.0em;
+}
+
+.t-left{
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 100;
+  padding-right: 45px;
+  text-align: right;
+  color: #4F4F4F;
+}
+
+#field-titles {
+  line-height:1px; 
+  margin-bottom:15px;
+}

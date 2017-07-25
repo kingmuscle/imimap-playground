@@ -1,0 +1,30 @@
+<table class="table_compare">
+<thead>
+  <tr class="table">
+    <th></th>
+    <th><%= t "companies.attributes.name" %></th>
+    <th><%= t "companies.attributes.address" %></th>
+    <th><%= t "internships.attributes.salary" %></th>
+    <th><%= t "internships.attributes.working_hours" %></th>
+    <th><%= t "internships.attributes.living_costs" %></th>
+    <th><%= t "internships.attributes.orientation" %></th>
+    <th><%= t "internships.attributes.programming_language" %></th>
+    <th><%= t "internships.attributes.rating" %></th>
+  </tr>
+</thead>
+<tbody>
+<% @internships.each do |internship| %>
+  <tr class="<%= cycle("even_row", "odd_row") %>">
+		<td><%= link_to internship.title,internship %></td>
+        <td><%= internship.company.name %></td>
+        <td><%= internship.company.city %>, <%= internship.company.country %></td>
+    <td><%= internship.salary %></td>
+    <td><%= internship.working_hours %></td>
+    <td><%= internship.living_costs %></td>
+    <td><%= internship.orientation.name %></td>
+    <td><%= internship.programming_languages.map { |n| n.name }.join(", ") %></td>
+    <td><%= internship.rating %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>

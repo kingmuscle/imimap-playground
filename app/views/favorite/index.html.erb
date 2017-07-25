@@ -1,0 +1,52 @@
+<style type="text/css">
+.wrapper{ margin-bottom: 300px;}
+</style>
+
+<h2> <%= t "users.show.favorites_title" %> </h2>
+
+<% if !@favorites.empty? %>
+
+<%= form_tag(favorite_compare_index_path, remote: true, method: 'get') do %>
+<div class="table-container">
+<table class="table">
+	<tbody>
+	  
+	<% @favorites.each do |favorite| %>
+	  <tr class="<%= cycle("even_row2", "odd_row2") %>">
+		<td><%= check_box_tag "favorite_ids[]", favorite.internship.id %></td>
+	    <td><%= favorite.internship.title %></td>
+	    <td><%= favorite.internship.company.address %></td>
+	    <td><%= favorite.internship.orientation.name %></td>
+	    <td><%= favorite.internship.programming_languages.map { |n| n.name }.join(", ") %></td>
+	    <td><%= link_to "", favorite.internship, class: "icon-white  icon-circle-arrow-right icon-2x button_intern" %></td>
+	    <td><%= link_to "", favorite, method: :delete, data: { confirm: 'Are you sure?' }, class: "red-thumb icon-remove icon-2x button_intern" %></td>
+	  </tr>
+	<% end %>
+
+	</tbody>
+</table>
+</div>
+<%= submit_tag (t "buttons.compare"), class: "btn btn-success" %>
+
+<% end %>
+
+
+<div id="compareModal" class="modal hide fade span12" tabindex="-1" role="dialog" aria-labelledby="compareModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="compareModalLabel">Comparison of your favorites</h3>
+  </div>
+  <div id="modal-body">
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>
+
+<% else %>
+
+	<div>
+		<h3> <%= t "favorite.notfound.title" %> </h3>
+		<p> <%= t("favorite.notfound.message", :href => link_to(t("favorite.notfound.link"), internships_path)).html_safe %> </p>
+	</div>
+
+<% end %>

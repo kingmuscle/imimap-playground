@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t "companies.attributes.name"  %> :</b>
+  <%= @company.name %>
+</p>
+
+<p>
+  <b><%= t "companies.attributes.address"  %>:</b>
+  <%= "#{@company.street}, #{@company.zip} #{@company.city}, #{@company.country}" %>
+</p>
+
+
+<p>
+  <b><%= t "companies.attributes.website"  %> :</b>
+  <%= @company.website %>
+</p>
+
+<p>
+  <b><%= t "companies.attributes.industry"  %> :</b>
+  <%= @company.industry %>
+</p>
+<p>
+
+<p>
+  <b><%= t "companies.attributes.number_employees"  %> :</b>
+  <%= @company.number_employees %>
+</p>
+
+
+<b><%= t "companies.attributes.main_language"  %> :</b>
+  <%= @company.main_language %>
+</p>
+<p>
+
+<b><%= t "companies.attributes.rating"  %> :</b>
+  <% sum = 0%>
+  <% amt = 0%>
+  <% if @internships.size > 0 %>
+    <% @internships.each do |i| %>
+      <% sum += i.rating %>
+      <% amt += 1 %>
+    <%end%>
+    <%=sum/amt%>
+  <% else %>
+    <% 0 %>
+  <%end%>
+</p>
+<p>
+
+  <b><%= t "companies.internships.recommend"  %> :</b>
+ <% recommended, not_recommended = @company.internships.partition { |internship| internship.recommend == true } %>
+
+ <%= "#{t('companies.attributes.recommended')} #{recommended.size}" %>
+ <%= "#{t('companies.attributes.not_recommended')} #{not_recommended.size}" %>
+</p>
+
+
+<h3> Internships done here: </h3>
+
+<table class="table">
+  <tr>
+    <th><%= t "internships.attributes.title" %></th>
+    <th><%= t "internships.attributes.orientation" %></th>
+    <th><%= t "internships.attributes.programming_language" %></th>
+    <th><%= t "internships.attributes.rating" %></th>
+    <th></th>
+  </tr>
+
+<% @internships.each do |internship| %>
+  <tr>
+    <td><%= internship.title %></td>
+    <td><%= internship.orientation.name %></td>
+    <td><%= internship.programming_languages.map { |n| n.name } %></td>
+    <td><%= render_stars(internship.rating, self) %></td>
+    <td><%= link_to (t "buttons.show"), internship, class: "btn btn-success" %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= gmaps({
+   "map_options" => {"auto_zoom" => false, "zoom" => 5 },
+   "markers"     => {"data" => @pins }
+  })
+%>
+<%= yield :scripts %>

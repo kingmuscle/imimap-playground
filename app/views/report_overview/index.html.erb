@@ -1,0 +1,85 @@
+<h2 style="margin-bottom:35px;"><%= t "REPORT OVERVIEW" %></h2>
+
+
+<%= form_tag(report_overview_index_path, :method => 'get', class: 'form2') do %>
+
+
+    <div class="row-fluid">
+
+      <div class="span4">
+        <%= select_tag :semester, options_for_select(@semesters),  { :multiple => true , class: 'chzn-select', 'data-placeholder'=>t("choose.semester"), style: "width:100%"}  %>
+      </div>
+
+
+      <div class="span4">
+      <%= select_tag :orientation, options_for_select(@names),  { :multiple => true , class: 'chzn-select', 'data-placeholder'=>t("choose.id")}  %>
+      </div>
+
+      <div class="span4">
+        <%= select_tag :orientation, options_for_select(@names),  { :multiple => true , class: 'chzn-select', 'data-placeholder'=>t("choose.names")}  %>
+      </div>
+
+    </div>
+    <br/>
+
+    <br/>
+
+    <%= submit_tag t("search.title"), :name => "search", :class => "" %>
+
+
+<% end %>
+
+
+
+<h5> <%= @internships_size %> <%= t('results.found') %> </h5>
+
+<div class="table-container">
+  <table id="paginated" class="table tablesorter">
+    <thead>
+    <tr class="table_intern table_fin">
+      <th class="company"><%= t "users.attributes.name" %></th>
+      <th class="company"><%= t "companies.attributes.name" %></th>
+      <th class="programming_language"><%= t "students.attributes.enrolment_number" %></th>
+      <th data-sort="string" class="company"><%= t "internships.attributes.semester" %> <i class='icon-sort'></i></th>
+      <th data-sort="string" class="orientation"><%= t "internships.attributes.internship_report" %> <i class='icon-sort'></i></th>
+      <th class="company"> <%= t "internships.attributes.due_date" %></th>
+
+    </tr>
+    </thead>
+
+
+
+
+    <tbody>
+    <% @internships.each do |internship| %>
+        <tr class="<%= cycle("even_row", "odd_row") %>">
+
+          <td class="table_inside"><%= internship.student.name %></td>
+          <td class="table_inside"><%= internship.company.name %></td>
+          <td class="table_inside"><%= internship.student.enrolment_number %></td>
+          <td class="table_inside"><%= internship.try(:semester).try(:name) %></td>
+          <td><%= link_to File.basename(internship.internship_report.path), internship.internship_report.url %></td>
+          <td class="table_inside"> <%= internship.end_date %>  </td>
+
+
+          <td class="table_inside"><%= link_to "details", internship %></td>
+
+
+          <!--<td class="table_inside"><%#= link_to "", internship, class: "icon-green-hover icon-circle-arrow-right icon-2x button_intern" %></td> -->
+          <td class="table_inside">
+          <div id="">
+
+                <%= link_to ({:controller=>:favorite, :action=>:create, :internship_id => internship.id, :user_id => current_user.id}, {:method=>:post, remote: true, class: ""}) do %>
+                    <i class=""> </i><%= t(" assign to me") %>
+
+            <% end %>
+          </div>
+
+          </td>
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <!--<div style="width: 100%; height:10px; background-color:#4f4f4f; position: inherit; margin-top:-20px;"></div>-->
+</div>
